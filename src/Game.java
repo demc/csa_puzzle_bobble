@@ -21,11 +21,11 @@ public class Game extends PApplet
     public void setup() {
         objectManager = new ObjectManager(this);
         
-        Cannon cannon = new Cannon(width / 2, height, 5, 50, color(255));
+        Cannon cannon = new Cannon(width / 2, height - 25, 5, 150, color(255));
         cannon.setMinAngle(100);
         cannon.setMaxAngle(260);
         cannon.setAngle(180);
-        cannon.setBubble(new Bubble(width / 2, height - 15, 15, randomColor()));
+        cannon.setBubble(new Bubble(width / 2, height - 25, 15, randomColor()));
         
         objectManager.setCannon(cannon);
         

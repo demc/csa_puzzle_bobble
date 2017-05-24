@@ -47,16 +47,33 @@ public class Cannon
     public void setBubble(Bubble bubble) {
         this.bubble = bubble;
     }
-    
+
+    public Bubble launchBubble(int initialVelocity) {
+        Bubble b = bubble;
+
+        // clear bubble
+        bubble = null;
+
+        // TODO
+        b.setVelocityX(initialVelocity);
+        b.setVelocityY(initialVelocity);
+
+        return b;
+    }
+
     public void draw(PApplet app) {
+        app.pushStyle();
         app.pushMatrix();
+        app.rectMode(app.CENTER);
         app.translate(x, y);
         app.rotate(app.radians(angle));
         app.noStroke();
         app.fill(color);
         app.rect(0, 0, width, height);
+        app.triangle(0, height / 2 + 15, 7, height / 2, -7, height / 2);
         app.popMatrix();
-        
+        app.popStyle();
+
         if (bubble != null) {
             bubble.draw(app);
         }
